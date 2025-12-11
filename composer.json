@@ -1,0 +1,20 @@
+{
+    "name": "diti/diti.by",
+    "description": "Custom PHP Project for diti.by",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Sportmax",
+            "email": "info@domain.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "classmap": [
+            "includes/php/classes/"
+        ]
+    }
+}

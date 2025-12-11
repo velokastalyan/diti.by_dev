@@ -1,0 +1,23 @@
+# ===== МЕДИА И СТАТИКА (НЕ ХРАНИМ В GIT) =====
+pub/
+images/
+
+# Бэкапы и дампы БД
+backups/
+backup/
+*.sql
+*.sql.gz
+*.tar
+*.tar.gz
+*.zip
+
+# Логи / кеши / временные файлы
+cache/
+tmp/
+logs/
+*.log
+
+# IDE и системный мусор
+.vscode/
+.idea/
+.DS_Store

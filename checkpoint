@@ -1,0 +1,9 @@
+#!/bin/bash
+MSG="$1"
+if [ -z "$MSG" ]; then
+  MSG="WIP: Update code and docs"
+fi
+git add .
+git commit -m "$MSG"
+# git push origin main # Раскомментировать если подключен удаленный репо
+echo "✅ Код и Документация сохранены в Git!"

@@ -1,0 +1,20 @@
+#!/bin/bash
+OUT="GEM_KNOWLEDGE_BASE.md"
+echo "# 🧠 Knowledge Base: Project Diti.by" > $OUT
+echo "Updated: $(date)" >> $OUT
+echo "" >> $OUT
+echo "## 📋 Technical Passport" >> $OUT
+echo "- **Stack:** Docker, PHP 5.6/7.4, MySQL 5.7" >> $OUT
+echo "" >> $OUT
+echo "## 📂 Structure (Docs)" >> $OUT
+tree docs >> $OUT
+echo "" >> $OUT
+echo "## 📝 Current Plan & Status" >> $OUT
+cat docs/PROJECT_PLAN.md >> $OUT
+echo "" >> $OUT
+echo "## 🔍 Key Files Content" >> $OUT
+echo '```php' >> $OUT
+echo "// index.php" >> $OUT
+head -n 50 index.php >> $OUT
+echo '```' >> $OUT
+echo "✅ Файл $OUT обновлен. Скачай его перед сменой чата!"

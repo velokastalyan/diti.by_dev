@@ -1,0 +1,172 @@
+<?php
+require_once('config/_config.inc.php');
+require_once(FUNCTION_PATH . 'functions.php');
+require_once(BASE_CLASSES_PATH . 'application.php');
+
+define('OBJECT_ACTIVE', 1);
+define('OBJECT_NOT_ACTIVE', 0);
+define('OBJECT_SUSPENDED', 2);
+
+define('TH_IMAGE_WIDTH', 150);
+define('TH_IMAGE_HEIGHT', 225);
+
+define('MD_IMAGE_WIDTH', 250);
+define('MD_IMAGE_HEIGHT', 375);
+
+define('OR_IMAGE_WIDTH', 60);
+define('OR_IMAGE_HEIGHT', 90);
+
+
+define('RECORDSET_FIRST_ITEM', '- Select from the list -');
+
+class CApp extends CApplication
+{
+    function CApp()
+    {
+		//$this->locale = 'ru_RU';
+		
+    	//$this->codepage = 'UTF-8';
+        //setlocale(LC_ALL, ((!isset($_SERVER['WINDIR'])) ? sprintf('%1$s.%2$s', $this->locale, $this->codepage) : ''));	
+        parent::CApplication();
+        
+        $this->Modules['Images'] = array(
+			'ClassName' => 'CImages',
+            'ClassPath' => CUSTOM_CLASSES_PATH . 'components/images.php',
+            'Visual'=>'0',
+            'Title' => 'Images'
+        );
+        $this->Modules['Inputs'] = array(
+			'ClassName' => 'CInputs',
+            'ClassPath' => CUSTOM_CLASSES_PATH . 'components/inputs.php',
+            'Visual'=>'0',
+            'AjaxVisible' => true,
+            'Title' => 'Inputs'
+        );
+        $this->Modules['AjaxValidator'] = array(
+			'ClassName' => 'CAjaxValidator',
+            'ClassPath' => CUSTOM_CLASSES_PATH . 'components/ajaxvalidator.php',
+            'Visual'=>'0',
+            'AjaxVisible' => true,
+            'Title' => 'AjaxValidator'
+        );
+		$this->Modules['Pages'] = array(
+			'ClassName' => 'CPages',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/pages.php',
+			'Visual'=> '0',
+			'AjaxVisible' => true,
+			'Title' => 'Pages'
+		);
+		$this->Modules['Categories'] = array(
+			'ClassName' => 'CCategories',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/categories.php',
+			'Visual'=>'0',
+			'Title' => 'Categories'
+		);
+		$this->Modules['Brands'] = array(
+			'ClassName' => 'CBrands',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/brands.php',
+			'Visual'=>'0',
+			'Title' => 'Brands'
+		);
+		$this->Modules['Products'] = array(
+			'ClassName' => 'CProducts',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/products.php',
+			'Visual'=>'0',
+			'AjaxVisible' => true,
+			'Title' => 'Products'
+		);
+		$this->Modules['Comments'] = array(
+			'ClassName' => 'CComments',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/comments.php',
+			'Visual'=>'0',
+			'Title' => 'Comments'
+		);
+		$this->Modules['Banners'] = array(
+			'ClassName' => 'CBanners',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/banners.php',
+			'Visual'=>'0',
+			'Title' => 'Banners'
+		);
+		$this->Modules['Videos'] = array(
+			'ClassName' => 'CVideos',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/videos.php',
+			'Visual'=>'0',
+			'Title' => 'Videos'
+		);
+		$this->Modules['Articles'] = array(
+			'ClassName' => 'CArticles',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/articles.php',
+			'Visual'=>'0',
+			'Title' => 'Articles'
+		);
+        $this->Modules['Service'] = array(
+            'ClassName' => 'CService',
+            'ClassPath' => CUSTOM_CLASSES_PATH . 'components/service.php',
+            'Visual'=>'0',
+            'Title' => 'Service'
+        );
+		$this->Modules['Consultation'] = array(
+			'ClassName' => 'CConsultation',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/consultation.php',
+			'Visual'=>'0',
+			'Title' => 'Consultation'
+		);
+        $this->Modules['Distribution'] = array(
+            'ClassName' => 'CDistribution',
+            'ClassPath' => CUSTOM_CLASSES_PATH . 'components/distribution.php',
+            'Visual'=> '0',
+            'Title' => 'Distribution'
+        );
+		$this->Modules['Orders'] = array(
+			'ClassName' => 'COrders',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/orders.php',
+			'Visual'=> '0',
+			'Title' => 'Orders'
+		);
+        $this->Modules['Ajax'] = array(
+            'ClassName' => 'CAjax',
+            'ClassPath' => CUSTOM_CLASSES_PATH . 'components/ajax.php',
+            'Visual'=>'0',
+            'AjaxVisible' => true,
+            'Title' => 'Ajax'
+        );
+        $this->Modules['Menus'] = array(
+			'ClassName' => 'CMenus',
+			'ClassPath' => CUSTOM_CLASSES_PATH . 'components/menus.php',
+			'Visual'=> '0',
+			'AjaxVisible' => true,
+			'Title' => 'Menus'
+		);
+   	}
+    
+    function on_page_init() {
+        if (!parent::on_page_init())
+                return false;
+        global $DebugLevel;
+        global $SiteName;
+
+        $DebugLevel = 0;
+
+	    $client_ip = ( !empty($HTTP_SERVER_VARS['REMOTE_ADDR']) ) ? $HTTP_SERVER_VARS['REMOTE_ADDR'] : ( ( !empty($HTTP_ENV_VARS['REMOTE_ADDR']) ) ? $HTTP_ENV_VARS['REMOTE_ADDR'] : getenv('REMOTE_ADDR') );
+	    //$this->Session->session_notify($client_ip);
+
+		$this->tv['copyright_year'] = date('Y');
+		$this->tv['last_modified'] = gmdate('D, d M Y 00:00:00', time() - 24*60*60) . ' GMT';
+		$this->tv['is_debug_mode'] = ($DebugLevel == 0);
+		$this->tv['site_name'] = $SiteName;
+		
+		return true;
+    }
+}
+
+function on_php_error($code, $message, $filename='', $linenumber=-1, $context=array()) {
+    if (intval($code) != 2048)
+    {
+      //  system_die('Error '.$code.' ('.$message.') occured in '.$filename.' at '.$linenumber.'');
+    }
+}
+@ob_start();
+@set_error_handler('on_php_error');
+@session_start();
+$GLOBALS['app'] = new CApp();
+?>

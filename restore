@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "⚠️  ВОССТАНОВЛЕНИЕ ИЗ БЭКАПА"
+PS3="Выбери файл восстановления: "
+select filename in backups/*.tar.gz; do
+    if [ -n "$filename" ]; then
+        echo "⏳ Восстанавливаем из $filename..."
+        tar -xzf "$filename"
+        
+        if [ -f "dump_temp.sql" ]; then
+             echo "🔄 Восстанавливаем БД..."
+             docker exec -i $(docker ps -qf "name=db") mysql -u root -prootpassword user2160086_timistkas_sportmax < dump_temp.sql
+             rm dump_temp.sql
+        fi
+        echo "✅ Система восстановлена!"
+        break
+    else
+        echo "❌ Неверный выбор."
+    fi
+done

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /images/
+Disallow: /pub/
+Disallow: /*?
+Sitemap: https://diti.by/sitemap.xml
+Disallow: /velo/velosipedyi/gornyiy-mtb/velosiped-santa-cruz-highball-3-0-c-s-kit-29.html

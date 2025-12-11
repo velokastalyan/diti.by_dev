@@ -1,0 +1,21 @@
+@media print {
+    .link_top,
+    .menu,
+    .main_menu,
+    .see_also,
+    .reviews-list,
+    .social_scroll,
+    .product_actions,
+    .brand-slider,
+    .video-review,
+    .labels,
+    .online-chat,
+    .addthis_toolbox,
+    .reviews,
+    .bread_crumbs,
+    #vk_groups0,
+    #floating-panel
+    {
+        display: none;
+    }
+}

@@ -1,0 +1,12 @@
+#!/bin/bash
+NAME="backup_$(date +%Y%m%d_%H%M%S)"
+echo "📦 Создаем локальный снэпшот: $NAME..."
+
+# Дамп базы (если контейнер запущен)
+docker exec -i $(docker ps -qf "name=db") mysqldump -u root -prootpassword user2160086_timistkas_sportmax > dump_temp.sql 2>/dev/null
+
+# Архивация (исключая тяжелые папки node_modules и т.д., если появятся)
+tar -czf backups/$NAME.tar.gz --exclude='backups' --exclude='.git' .
+
+rm dump_temp.sql
+echo "✅ Снэпшот сохранен в backups/$NAME.tar.gz"

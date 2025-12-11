@@ -1,0 +1,13 @@
+#!/bin/bash
+# MacOS compatible version
+# 1. Находим первую задачу [IN PROGRESS] и меняем на [x]
+sed -i '' '1,/\[IN PROGRESS\]/s/\[IN PROGRESS\]/[x]/' docs/PROJECT_PLAN.md
+
+echo "🎉 Отлично! Задача помечена выполненной."
+
+# 2. Находим первую задачу [TODO] и меняем на [IN PROGRESS]
+sed -i '' '1,/\[TODO\]/s/\[TODO\]/[IN PROGRESS]/' docs/PROJECT_PLAN.md
+
+# 3. Выводим новую задачу
+NEXT=$(grep "\[IN PROGRESS\]" docs/PROJECT_PLAN.md | sed 's/^[ \t]*//')
+echo "👉 Твоя следующая задача: $NEXT"

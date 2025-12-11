@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "8091:80"
+    volumes:
+      - ./../diti.by_dev:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_USER: sportuser
+      DB_PASSWORD: m7z0L9sD4g
+      DB_DATABASE: user2160086_timistskas_sportmax
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: user2160086_timistskas_sportmax
+      MYSQL_USER: sportuser
+      MYSQL_PASSWORD: m7z0L9sD4g
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./user2160086_timistskas_sportmax.sql:/docker-entrypoint-initdb.d/dump.sql
+    ports:
+      - "3307:3306"
+
+volumes:
+  db_data:

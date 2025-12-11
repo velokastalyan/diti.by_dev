@@ -1,0 +1,1501 @@
+========================================
+📅 DATE: Thu Dec  4 21:03:19 +03 2025
+💻 LOCAL URL: http://localhost:8090
+========================================
+## 📂 FILE STRUCTURE
+.
+./minify
+./minify/quick-test.js
+./minify/index.php
+./minify/config-test.php
+./minify/config.php
+./minify/quick-test.css
+./minify/lib
+./minify/lib/Minify
+./minify/lib/JSMin.php
+./minify/lib/Minify.php
+./minify/lib/FirePHP.php
+./minify/lib/JSMinPlus.php
+./minify/lib/HTTP
+./minify/lib/DooDigestAuth.php
+./minify/lib/CSSmin.php
+./minify/lib/MrClay
+./minify/utils.php
+./minify/builder
+./minify/builder/_index.js
+./minify/builder/bm.js
+./minify/builder/ocCheck.php
+./minify/builder/index.php
+./minify/builder/bm2.js
+./minify/builder/test.php
+./minify/builder/jquery-1.6.3.min.js
+./minify/builder/rewriteTest.js
+./minify/groupsConfig.php
+./PROJECT_CONTEXT.md
+./home
+./home/timistkas
+./home/timistkas/www
+./_r
+./schema_structure.sql
+./database_FINAL.php
+./project_tree.txt
+./index.php
+./446EF893818BB87FF31B61CF57C4ECFB.txt
+./CONTEXT_FOR_AI.txt
+./chat
+./chat/locales
+./chat/locales/names
+./chat/locales/no
+./chat/locales/ru
+./chat/locales/es
+./chat/locales/en
+./chat/locales/lt
+./chat/index.php
+./chat/LICENSE
+./chat/mail.php
+./chat/images
+./chat/images/submit.gif
+./chat/images/topdiv.gif
+./chat/images/tbllabyel.gif
+./chat/images/header.gif
+./chat/images/nextpage.gif
+./chat/images/favicon.ico
+./chat/images/buttons
+./chat/images/mail.png
+./chat/images/footer.gif
+./chat/images/loginbg.gif
+./chat/images/li.gif
+./chat/images/tblicusers2.gif
+./chat/images/tblicusers3.gif
+./chat/images/lidiv.gif
+./chat/images/blank.html
+./chat/images/prevpage.gif
+./chat/images/free.gif
+./chat/images/tbliclogin.gif
+./chat/images/icon_err.gif
+./chat/images/xmpp.png
+./chat/images/oponline.gif
+./chat/images/graydot.gif
+./chat/images/logo.png
+./chat/images/formline.gif
+./chat/images/avatar
+./chat/images/subitem.gif
+./chat/images/logincrnrt.gif
+./chat/images/ban.gif
+./chat/images/logincrnrb.gif
+./chat/images/submitrest.gif
+./chat/images/dash
+./chat/images/tablediv3.gif
+./chat/images/logincrnlt.gif
+./chat/images/tbliclread.gif
+./chat/images/logincrnlb.gif
+./chat/images/submitbg.gif
+./chat/images/tbliclspeak.gif
+./chat/images/tblicusers.gif
+./chat/images/subitem_rtl.gif
+./chat/images/mibewlogo.gif
+./chat/images/opaway.gif
+./chat/js
+./chat/js/168
+./chat/js/source
+./chat/js/jquery-1.4.2.min.js
+./chat/leavemessage.php
+./chat/README
+./chat/libs
+./chat/libs/expand.php
+./chat/libs/settings.php
+./chat/libs/pagination.php
+./chat/libs/operator_settings.php
+./chat/libs/getcode.php
+./chat/libs/config.php
+./chat/libs/userinfo.php
+./chat/libs/operator.php
+./chat/libs/converter.php
+./chat/libs/notify.php
+./chat/libs/captcha.php
+./chat/libs/common.php
+./chat/libs/groups.php
+./chat/libs/demothread.php
+./chat/libs/chat.php
+./chat/sounds
+./chat/sounds/new_message.wav
+./chat/sounds/new_user.wav
+./chat/styles
+./chat/styles/simplicity
+./chat/styles/original
+./chat/styles/silver
+./chat/styles/default
+./chat/styles/howto.txt
+./chat/license.php
+./chat/VERSION
+./chat/default.css
+./chat/view
+./chat/view/login.php
+./chat/view/resetpwd.php
+./chat/view/features.php
+./chat/view/agent.php
+./chat/view/translatelist.php
+./chat/view/group.php
+./chat/view/settings.php
+./chat/view/themes.php
+./chat/view/canned.php
+./chat/view/userhistory.php
+./chat/view/ban.php
+./chat/view/pending_users.php
+./chat/view/permissions.php
+./chat/view/inc_errors.php
+./chat/view/inc_main.php
+./chat/view/groupmembers.php
+./chat/view/thread_log.php
+./chat/view/inc_locales.php
+./chat/view/operator_groups.php
+./chat/view/translate.php
+./chat/view/getcode_text.php
+./chat/view/agents.php
+./chat/view/cannededit.php
+./chat/view/statistics.php
+./chat/view/install_index.php
+./chat/view/avatar.php
+./chat/view/inc_tabbar.php
+./chat/view/confirm.php
+./chat/view/menu.php
+./chat/view/license.php
+./chat/view/notifications.php
+./chat/view/getcode_image.php
+./chat/view/thread_search.php
+./chat/view/restore.php
+./chat/view/updates.php
+./chat/view/install_err.php
+./chat/view/performance.php
+./chat/view/groups.php
+./chat/view/notification.php
+./chat/view/blocked_visitors.php
+./chat/view/inc_menu.php
+./chat/captcha.php
+./chat/b.php
+./chat/thread.php
+./chat/operator
+./chat/operator/update.php
+./chat/operator/login.php
+./chat/operator/resetpwd.php
+./chat/operator/features.php
+./chat/operator/opgroups.php
+./chat/operator/agent.php
+./chat/operator/group.php
+./chat/operator/settings.php
+./chat/operator/index.php
+./chat/operator/themes.php
+./chat/operator/canned.php
+./chat/operator/userhistory.php
+./chat/operator/ban.php
+./chat/operator/permissions.php
+./chat/operator/groupmembers.php
+./chat/operator/logout.php
+./chat/operator/translate.php
+./chat/operator/gettextcode.php
+./chat/operator/getcode.php
+./chat/operator/cannededit.php
+./chat/operator/statistics.php
+./chat/operator/operator.php
+./chat/operator/avatar.php
+./chat/operator/history.php
+./chat/operator/users.php
+./chat/operator/operators.php
+./chat/operator/notifications.php
+./chat/operator/restore.php
+./chat/operator/blocked.php
+./chat/operator/updates.php
+./chat/operator/redirect.php
+./chat/operator/performance.php
+./chat/operator/groups.php
+./chat/operator/notification.php
+./chat/operator/autologin.php
+./chat/operator/threadprocessor.php
+./chat/client.php
+./chat/button.php
+./timistkas_sportmax.sql
+./CHANGELOG.md
+./css
+./css/admin.core.css
+./css/cloudzoom.css
+./css/jslider.round.plastic.css
+./css/admin.fileuploader.css
+./css/foundation_.css
+./css/style1.css
+./css/cloud-zoom.css
+./css/editor.css
+./css/style_responsive.css
+./css/sliderkit.css
+./css/jslider.round.css
+./css/admin.tags.css
+./css/admin.fileupload-ui.css
+./css/admin.ie7.css
+./css/jquery.fancybox.css
+./css/jslider.blue.css
+./css/jslider.plastic.css
+./css/jslider.css
+./css/responsive.css
+./css/royalslider.css
+./css/lightbox.css
+./css/admin.menu-page.css
+./css/style.css
+./css/admin.bootstrap.css
+./css/print.css
+./css/admin.ie.css
+./css/admin.bootstrap-responsive.css
+./css/admin.navigator.css
+./css/foundation.css
+./git.
+./js
+./js/cloudzoom.js
+./js/interface.js
+./js/scroll.js
+./js/rl.js
+./js/rate.js
+./js/jquery.jcarousel.min.js
+./js/cpagespage.js
+./js/jquery.royalslider.min.js
+./js/jquery.dependClass-0.1.js
+./js/jquery.sliderkit.1.4.min.js
+./js/cproductpage.js
+./js/jquery.nestable.js
+./js/bootstrap.js
+./js/observer.js
+./js/validator.js
+./js/jquery
+./js/jquery/jquery-1.8.1.min.js
+./js/jquery/admin.ui
+./js/jquery/jquery.cookie.js
+./js/includes
+./js/includes/app.php
+./js/includes/config
+./js/includes/php
+./js/includes/router.php
+./js/fancyzoom.min.js
+./js/scriptsresp.js
+./js/jquery.fancybox.js
+./js/jquery-1.7.min.js
+./js/scripts_.js
+./js/bootstrap.min.js
+./js/scripts.js
+./js/lightbox.js
+./js/cindexpage.js
+./js/tmpl.js
+./js/jshashtable-2.1_src.js
+./js/jquery.prettyPhoto.js
+./js/plupload
+./js/plupload/plupload.gears.js
+./js/plupload/plupload.html5.js
+./js/plupload/plupload.html4.js
+./js/plupload/plupload.flash.swf
+./js/plupload/plupload.silverlight.xap
+./js/plupload/jquery.ui.plupload
+./js/plupload/jquery.plupload.queue
+./js/plupload/plupload.browserplus.js
+./js/plupload/plupload.js
+./js/plupload/plupload.silverlight.js
+./js/plupload/i18n
+./js/plupload/plupload.flash.js
+./js/plupload/plupload.full.js
+./js/cloud-zoom.1.0.2.min.js
+./js/jquery.slider.js
+./js/jquery.tiptip.minified.js
+./js/tiny_mce
+./js/tiny_mce/lists
+./js/tiny_mce/plugins
+./js/tiny_mce/tiny_mce_src.js
+./js/tiny_mce/utils
+./js/tiny_mce/langs
+./js/tiny_mce/tiny_mce_popup.js
+./js/tiny_mce/license.txt
+./js/tiny_mce/themes
+./js/tiny_mce/tiny_mce.js
+./js/_rate.js
+./js/draggable-0.1.js
+./js/jquery.foundation.forms.js
+./js/jquery.numberformatter-1.2.3.js
+./js/ajax-connector.js
+./Dockerfile
+./database.php
+./database_FIXED_2.php
+./deploy_fixes.sh
+./includes
+./includes/back.zip
+./includes/app.php
+./includes/x.php
+./includes/config
+./includes/config/site-structure-255.php
+./includes/config/site-structure.php
+./includes/config/site-structure-empty.php
+./includes/config/_config.inc.php
+./includes/includes.zip
+./includes/php
+./includes/php/classes
+./includes/php/functions
+./includes/dump.sql
+./includes/diti_includes_backup.zip
+./includes/router.php
+./includes/templates
+./includes/templates/custom
+./includes/templates/base
+./admin
+./admin/index.php
+./var
+./var/www
+./var/www/vhosts
+./var/log
+./shops.dtd
+./docs
+./docs/PROJECT_CONTEXT.md
+./docs/PROJECT_PLAN.md
+./docs/CHANGELOG.md
+./user2160086_timistkas_sportmax.sql
+./deploy_template.sh
+./img
+./img/jslider.round.png
+./img/jslider.plastic.png
+./img/jslider.blue.png
+./img/jslider.round.plastic.png
+./img/jslider.png
+./Резервная копия
+./Резервная копия/database.mysql.php
+./Резервная копия/2025-11-20.user2160086
+./Резервная копия/2025-11-20.user2160086/data
+./Резервная копия/20-45 user2160086_timistkas_sportmax.sql
+./Резервная копия/user2160086_timistkas_sportmax.sql
+./Резервная копия/CCategoriesPage.php
+./Резервная копия/CProductsPage.php
+./test.php
+./test.html
+./yandex_72a7337b11ca7aeb.html
+./CCategoriesPage.php
+./cgi-bin
+./sitemap.xml
+./docker-compose.yml
+./CProductsPage.php
+./CProductsPage_FIXED.php
+./robots.txt
+./php.php
+./save
+./database_FIXED.php
+./composer.json
+./googleae60cede9e9f772f.html
+./clear_cache.php
+./ajax
+./ajax/handler.php
+./ajax/admin
+./ajax/admin/upload.php
+./yandex_2dc44af5af7bb9be.html
+
+## 🗄️ DATABASE SCHEMA
+-- MySQL dump 10.13  Distrib 5.7.44, for Linux (x86_64)
+--
+-- Host: localhost    Database: user2160086_timistkas_sportmax
+-- ------------------------------------------------------
+-- Server version	5.7.44
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `uri` varchar(254) DEFAULT NULL,
+  `public_date` datetime DEFAULT NULL,
+  `image_filename` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `description` mediumtext,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `id_cat` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `article_category`
+--
+
+DROP TABLE IF EXISTS `article_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `uri` varchar(255) NOT NULL,
+  `description` text,
+  `position` int(11) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `is_menu` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `article_comment`
+--
+
+DROP TABLE IF EXISTS `article_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `status` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27926 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `banner`
+--
+
+DROP TABLE IF EXISTS `banner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `banner` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `uri` varchar(255) DEFAULT NULL,
+  `image_filename` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `brand`
+--
+
+DROP TABLE IF EXISTS `brand`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `brand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `uri` varchar(255) DEFAULT NULL,
+  `description` text,
+  `image_filename` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=395 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `brand_footer`
+--
+
+DROP TABLE IF EXISTS `brand_footer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `brand_footer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `uri` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `image_filename` varchar(255) DEFAULT NULL,
+  `is_display` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `parent_path` varchar(510) DEFAULT NULL,
+  `parent_path_uri` varchar(510) DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `uri` varchar(255) DEFAULT NULL,
+  `image_filename` varchar(255) DEFAULT NULL,
+  `description` text,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_keywords` varchar(255) NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `deep` tinyint(1) NOT NULL,
+  `position` int(11) NOT NULL DEFAULT '1',
+  `h1_text` varchar(255) DEFAULT NULL,
+  `dollar_currency` decimal(11,2) NOT NULL DEFAULT '0.00',
+  `rouble_currency` decimal(11,3) NOT NULL DEFAULT '0.000',
+  PRIMARY KEY (`id`),
+  KEY `uri` (`uri`),
+  KEY `parent_path` (`parent_path`(255)),
+  KEY `dollar_currency` (`dollar_currency`),
+  KEY `rouble_currency` (`rouble_currency`),
+  KEY `parent_path_2` (`parent_path`(255)),
+  KEY `parent_path_uri` (`parent_path_uri`(255)),
+  KEY `uri_2` (`uri`),
+  KEY `image_filename` (`image_filename`)
+) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatban`
+--
+
+DROP TABLE IF EXISTS `chatban`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatban` (
+  `banid` int(11) NOT NULL AUTO_INCREMENT,
+  `dtmcreated` datetime DEFAULT '0000-00-00 00:00:00',
+  `dtmtill` datetime DEFAULT '0000-00-00 00:00:00',
+  `address` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `blockedCount` int(11) DEFAULT '0',
+  PRIMARY KEY (`banid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatconfig`
+--
+
+DROP TABLE IF EXISTS `chatconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatconfig` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vckey` varchar(255) DEFAULT NULL,
+  `vcvalue` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatgroup`
+--
+
+DROP TABLE IF EXISTS `chatgroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatgroup` (
+  `groupid` int(11) NOT NULL AUTO_INCREMENT,
+  `vcemail` varchar(64) DEFAULT NULL,
+  `vclocalname` varchar(64) NOT NULL,
+  `vccommonname` varchar(64) NOT NULL,
+  `vclocaldescription` varchar(1024) NOT NULL,
+  `vccommondescription` varchar(1024) NOT NULL,
+  PRIMARY KEY (`groupid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatgroupoperator`
+--
+
+DROP TABLE IF EXISTS `chatgroupoperator`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatgroupoperator` (
+  `groupid` int(11) NOT NULL,
+  `operatorid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatmessage`
+--
+
+DROP TABLE IF EXISTS `chatmessage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatmessage` (
+  `messageid` int(11) NOT NULL AUTO_INCREMENT,
+  `threadid` int(11) NOT NULL,
+  `ikind` int(11) NOT NULL,
+  `agentId` int(11) NOT NULL DEFAULT '0',
+  `tmessage` text NOT NULL,
+  `dtmcreated` datetime DEFAULT '0000-00-00 00:00:00',
+  `tname` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`messageid`),
+  KEY `idx_agentid` (`agentId`)
+) ENGINE=InnoDB AUTO_INCREMENT=30173 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatnotification`
+--
+
+DROP TABLE IF EXISTS `chatnotification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatnotification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `locale` varchar(8) DEFAULT NULL,
+  `vckind` varchar(16) DEFAULT NULL,
+  `vcto` varchar(256) DEFAULT NULL,
+  `dtmcreated` datetime DEFAULT '0000-00-00 00:00:00',
+  `vcsubject` varchar(256) DEFAULT NULL,
+  `tmessage` text NOT NULL,
+  `refoperator` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatoperator`
+--
+
+DROP TABLE IF EXISTS `chatoperator`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatoperator` (
+  `operatorid` int(11) NOT NULL AUTO_INCREMENT,
+  `vclogin` varchar(64) NOT NULL,
+  `vcpassword` varchar(64) NOT NULL,
+  `vclocalename` varchar(64) NOT NULL,
+  `vccommonname` varchar(64) NOT NULL,
+  `vcemail` varchar(64) DEFAULT NULL,
+  `dtmlastvisited` datetime DEFAULT '0000-00-00 00:00:00',
+  `istatus` int(11) DEFAULT '0',
+  `vcavatar` varchar(255) DEFAULT NULL,
+  `vcjabbername` varchar(255) DEFAULT NULL,
+  `iperm` int(11) DEFAULT '65535',
+  `inotify` int(11) DEFAULT '0',
+  `dtmrestore` datetime DEFAULT '0000-00-00 00:00:00',
+  `vcrestoretoken` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`operatorid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatresponses`
+--
+
+DROP TABLE IF EXISTS `chatresponses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatresponses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `locale` varchar(8) DEFAULT NULL,
+  `groupid` int(11) DEFAULT NULL,
+  `vcvalue` varchar(1024) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatrevision`
+--
+
+DROP TABLE IF EXISTS `chatrevision`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatrevision` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `chatthread`
+--
+
+DROP TABLE IF EXISTS `chatthread`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chatthread` (
+  `threadid` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(64) NOT NULL,
+  `userid` varchar(255) DEFAULT NULL,
+  `agentName` varchar(64) DEFAULT NULL,
+  `agentId` int(11) NOT NULL DEFAULT '0',
+  `dtmcreated` datetime DEFAULT '0000-00-00 00:00:00',
+  `dtmmodified` datetime DEFAULT '0000-00-00 00:00:00',
+  `lrevision` int(11) NOT NULL DEFAULT '0',
+  `istate` int(11) NOT NULL DEFAULT '0',
+  `ltoken` int(11) NOT NULL,
+  `remote` varchar(255) DEFAULT NULL,
+  `referer` text,
+  `nextagent` int(11) NOT NULL DEFAULT '0',
+  `locale` varchar(8) DEFAULT NULL,
+  `lastpinguser` datetime DEFAULT '0000-00-00 00:00:00',
+  `lastpingagent` datetime DEFAULT '0000-00-00 00:00:00',
+  `userTyping` int(11) DEFAULT '0',
+  `agentTyping` int(11) DEFAULT '0',
+  `shownmessageid` int(11) NOT NULL DEFAULT '0',
+  `userAgent` varchar(255) DEFAULT NULL,
+  `messageCount` varchar(16) DEFAULT NULL,
+  `groupid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`threadid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2035 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `rate` varchar(255) DEFAULT NULL,
+  `description` text NOT NULL,
+  `data` datetime DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `answer` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2841 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `consultation`
+--
+
+DROP TABLE IF EXISTS `consultation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `consultation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `date_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `comment` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1565 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `country`
+--
+
+DROP TABLE IF EXISTS `country`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `country` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `abbreviation` char(2) NOT NULL DEFAULT '',
+  `phone_code` varchar(32) DEFAULT NULL,
+  `tmp` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=259 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `distribution`
+--
+
+DROP TABLE IF EXISTS `distribution`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `distribution` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `send` int(11) NOT NULL,
+  `subject` text NOT NULL,
+  `message` text NOT NULL,
+  `dispatch_date` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `image`
+--
+
+DROP TABLE IF EXISTS `image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `system_key` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `image_size`
+--
+
+DROP TABLE IF EXISTS `image_size`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `image_size` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image_id` int(11) NOT NULL,
+  `system_key` varchar(255) NOT NULL,
+  `image_width` int(11) DEFAULT NULL,
+  `image_height` int(11) DEFAULT NULL,
+  `thumbnail_method` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `image_id` (`image_id`),
+  CONSTRAINT `image_size_fk` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ip_to_country`
+--
+
+DROP TABLE IF EXISTS `ip_to_country`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ip_to_country` (
+  `IP_FROM` bigint(20) unsigned NOT NULL,
+  `IP_TO` bigint(20) unsigned NOT NULL,
+  `REGISTRY` char(7) NOT NULL,
+  `ASSIGNED` bigint(20) NOT NULL,
+  `CTRY` char(2) NOT NULL,
+  `CNTRY` char(3) NOT NULL,
+  `COUNTRY` varchar(100) NOT NULL,
+  PRIMARY KEY (`IP_FROM`,`IP_TO`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `loc_lang`
+--
+
+DROP TABLE IF EXISTS `loc_lang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `loc_lang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `abbreviation` varchar(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `loc_string`
+--
+
+DROP TABLE IF EXISTS `loc_string`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `loc_string` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `language_id` (`language_id`),
+  CONSTRAINT `loc_string_fk` FOREIGN KEY (`language_id`) REFERENCES `loc_lang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3646 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `order`
+--
+
+DROP TABLE IF EXISTS `order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `shipping_id` int(11) DEFAULT NULL,
+  `count` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7792 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `page`
+--
+
+DROP TABLE IF EXISTS `page`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `public_date` datetime NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `page_data`
+--
+
+DROP TABLE IF EXISTS `page_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `page_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `uri` varchar(255) NOT NULL,
+  `description` text,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `is_ready` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `page_id` (`page_id`),
+  KEY `language_id` (`language_id`),
+  CONSTRAINT `page_data_fk` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `page_data_fk1` FOREIGN KEY (`language_id`) REFERENCES `loc_lang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `rate` int(11) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `description` text NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `brand_id` int(11) DEFAULT NULL,
+  `uri` varchar(255) NOT NULL,
+  `discount` int(11) DEFAULT NULL,
+  `sex` int(11) DEFAULT NULL,
+  `is_sale` int(11) DEFAULT NULL,
+  `is_recommend` int(11) DEFAULT NULL,
+  `is_new` int(11) DEFAULT NULL,
+  `video` text,
+  `is_delivery_minsk` int(11) DEFAULT NULL,
+  `is_delivery_moscow` int(11) DEFAULT NULL,
+  `is_delivery_belarus` int(11) DEFAULT NULL,
+  `description_delivery_minsk` varchar(255) DEFAULT NULL,
+  `description_delivery_belarus` varchar(255) DEFAULT NULL,
+  `description_delivery_moscow` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `size_arr` varchar(255) DEFAULT NULL,
+  `suspension` int(11) DEFAULT NULL,
+  `wheel` int(11) DEFAULT NULL,
+  `year` int(4) NOT NULL,
+  `tormoza` int(2) NOT NULL,
+  `vilka` int(2) NOT NULL,
+  `rama` int(2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`),
+  KEY `vilka` (`vilka`),
+  KEY `tormoza` (`tormoza`),
+  KEY `sex` (`sex`),
+  KEY `suspension` (`suspension`),
+  KEY `wheel` (`wheel`),
+  KEY `price` (`price`),
+  KEY `uri` (`uri`),
+  KEY `uri_2` (`uri`),
+  KEY `price_2` (`price`),
+  KEY `rate` (`rate`)
+) ENGINE=InnoDB AUTO_INCREMENT=24858 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `product_image`
+--
+
+DROP TABLE IF EXISTS `product_image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `product_image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `image_filename` varchar(255) NOT NULL,
+  `is_core` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=85169 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `product_recommend`
+--
+
+DROP TABLE IF EXISTS `product_recommend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `product_recommend` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `recommend_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `registry_meta`
+--
+
+DROP TABLE IF EXISTS `registry_meta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registry_meta` (
+  `value_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `unique_error_mess` tinyint(1) NOT NULL DEFAULT '0',
+  `add_info1` varchar(255) DEFAULT NULL,
+  `add_info2` varchar(255) DEFAULT NULL,
+  `add_info3` varchar(255) DEFAULT NULL,
+  KEY `value_id` (`value_id`),
+  CONSTRAINT `registry_meta_fk` FOREIGN KEY (`value_id`) REFERENCES `registry_value` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `registry_path`
+--
+
+DROP TABLE IF EXISTS `registry_path`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registry_path` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `language_id` int(11) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `language_id` (`language_id`),
+  CONSTRAINT `registry_path_fk` FOREIGN KEY (`language_id`) REFERENCES `loc_lang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `registry_value`
+--
+
+DROP TABLE IF EXISTS `registry_value`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registry_value` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path_id` int(11) NOT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `type` int(11) NOT NULL,
+  `required` tinyint(1) NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL,
+  `value` text,
+  PRIMARY KEY (`id`),
+  KEY `path_id` (`path_id`),
+  CONSTRAINT `registry_value_fk` FOREIGN KEY (`path_id`) REFERENCES `registry_path` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=321 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `service`
+--
+
+DROP TABLE IF EXISTS `service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `service` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `shipping_info`
+--
+
+DROP TABLE IF EXISTS `shipping_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shipping_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `comment` text,
+  `create_date` datetime DEFAULT NULL,
+  `status` tinyint(4) DEFAULT '0',
+  `payment` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6752 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `state`
+--
+
+DROP TABLE IF EXISTS `state`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `state` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) DEFAULT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `abbreviation` char(2) DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `country_id` (`country_id`),
+  CONSTRAINT `state_fk_new` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3637 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `subscriber`
+--
+
+DROP TABLE IF EXISTS `subscriber`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subscriber` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tag`
+--
+
+DROP TABLE IF EXISTS `tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `uri` varchar(255) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_role_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(255) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `zip` varchar(6) DEFAULT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_login_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `id_level` (`user_role_id`),
+  KEY `state_id` (`state_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user_role`
+--
+
+DROP TABLE IF EXISTS `user_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_role` (
+  `id` int(11) NOT NULL,
+  `title` varchar(60) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `video`
+--
+
+DROP TABLE IF EXISTS `video`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `video` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `position` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-12-04 18:03:19
+
+## ⚙️ CONFIG (includes/config/_config.inc.php)
+<?php
+// [DITI.BY LAB] Config Fix: Removed double port definition
+/*
+if (!(isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) {
+    $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    // header('Location: ' . $redirect); exit();
+}
+*/
+
+function get_formatted_microtime() {
+    list($usec, $sec) = explode(' ', microtime());
+    return ($usec+$sec);
+}
+$_t1 = get_formatted_microtime();
+
+$DebugLevel = 255;
+$SiteName = 'Sportmax Local';
+
+// --- ИСПРАВЛЕНИЕ: Указываем только хост, без порта ---
+$SiteUrl = 'localhost'; 
+$HTTPSSiteUrl = 'localhost'; 
+
+$RootPath = '/'; 
+$ssl_root = '/'; 
+
+$HttpPort = '8090'; // Порт добавляется движком автоматически
+$HttpName = 'http';
+$SHttpPort = '8090';
+$SHttpName = 'http';
+
+$AdministratorEmail = 'info@diti.by';
+$AdministratorName = 'sportmax';
+
+define('PROD', '0');
+define('MOD_REWRITE', false); 
+
+// === НАСТРОЙКИ БАЗЫ ДАННЫХ ===
+define('APPLICATION_DATABASE', 'mysql');
+define('DB_SERVER', 'db'); 
+define('DB_PORT', '3306');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'rootpassword');
+define('DB_DATABASE', 'user2160086_timistkas_sportmax');
+define('DB_PREFIX', '');
+
+define('XHTML', '1');
+
+$CUrlProxy = '';
+$CUrlProxyUserName = '';
+$CUrlProxyPassword = '';
+
+$FilePath = $_SERVER["DOCUMENT_ROOT"];
+if (substr($FilePath, -1) != "/") $FilePath .= "/";
+
+$CSSPath = $RootPath . 'css/';
+$JSPath = $RootPath . 'js/';
+$ImagesPath = $RootPath . 'images/';
+
+define('BR', '<br />');
+define('REGISTRY_FILES_WEB', '_r/');
+define('REGISTRY_FILES_STORAGE', $FilePath . '_r/');
+define('REGISTRY_XML', $FilePath . 'includes/registry/');
+define('FUNCTION_PATH', $FilePath . 'includes/php/functions/');
+define('ROUTES_PATH', $FilePath . 'includes/routes/');
+define('BASE_CLASSES_PATH', $FilePath . 'includes/php/classes/base/');
+define('BASE_CONTROLS_PATH', $FilePath . 'includes/php/classes/base/controls/');
+define('CUSTOM_CLASSES_PATH', $FilePath . 'includes/php/classes/custom/');
+define('CUSTOM_CONTROLS_PATH', $FilePath . 'includes/php/classes/custom/controls/');
+define('BASE_TEMPLATE_PATH', $FilePath . 'includes/templates/base/');
+define('CUSTOM_TEMPLATE_PATH', $FilePath . 'includes/templates/custom/');
+define('BASE_CONTROLS_TEMPLATE_PATH', $FilePath . 'includes/templates/base/controls/');
+define('CUSTOM_CONTROLS_TEMPLATE_PATH', $FilePath . 'includes/templates/custom/controls/');
+define('ROOT', $FilePath);
+
+@ini_set('session.use_only_cookies', '1');
+@ini_set('arg_separator.output', '&amp;');
+
+if ($DebugLevel) {
+    @error_reporting(E_ALL);
+    @ini_set('display_errors', '1');
+} else {
+    @error_reporting(0);
+}
+@set_time_limit(120);
+?>
+
+## 🔌 DB DRIVER (includes/php/classes/database.mysql.php)
+<?php
+require_once('_db.php');
+
+class CDataBase extends CBaseDB
+{
+    function CDataBase(&$app, $locale = 'en_US')
+    {
+        parent::CBaseDB($app);
+        $this->now_stmt = 'now()';
+        $this->datetime_stmt = 'DATETIME';
+        $this->clob_stmt = 'TEXT';
+        $this->auto_inc_stmt = 'auto_increment';
+        $this->concat_func_stmt = 'concat';
+        $this->concat_char = ',';
+        $this->locale = $locale;
+
+        if (!function_exists('mysqli_connect')) system_die('MySQLi module is not installed');
+    }
+
+    function _set_limit($sql, $limit)
+    {
+        if (!is_null($limit))
+            if (!is_array($limit))
+                $sql.= $limit> 0 ? ' LIMIT '.intval($limit):'';
+            elseif (isset($limit[1]) && isset($limit[0]) && ($limit[1] > 0) && ($limit[0] > 0))
+                $sql.=' LIMIT '.((intval($limit[0])-1) * intval($limit[1])). ',' . intval($limit[1]);
+        return $sql;
+    }
+
+    function free($id) { if ($id instanceof mysqli_result) return mysqli_free_result($id); return false; }
+    function get_last_id() { return mysqli_insert_id($this->LinkID); }
+
+    function internalConnect()
+    {
+        if ($this->LinkID === false)
+        {
+            $this->LinkID = @mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
+            if ($this->LinkID !== false)
+            {
+                mysqli_query($this->LinkID, "set names 'utf8'");
+                mysqli_query($this->LinkID, "SET SESSION sql_mode = ''");
+                return $this->LinkID;
+            }
+            else {
+                $this->last_error = 'Connect Error: ' . mysqli_connect_error();
+                return false;
+            }
+        }
+        return $this->LinkID;
+    }
+
+    function internalDisconnect() { if ($this->LinkID) @mysqli_close($this->LinkID); $this->LinkID = false; }
+    
+    function internalEscape($s) { 
+        if (($this->LinkID === false) && (!$this->internalConnect())) return false;
+        return mysqli_real_escape_string($this->LinkID, $s); 
+    }
+
+    function internalLikeEscape($s) {
+        $s = $this->internalEscape($s);
+        return str_replace(array('\\', '%', '_'), array('\\\\', '\\%', '\\_'), $s);
+    }
+
+    function internalFetchRow($r) { return @mysqli_fetch_array($r, MYSQLI_NUM); }
+    function internalFetchArray($r) { return @mysqli_fetch_array($r, MYSQLI_BOTH); }
+    function internalFetchAssoc($r) { return @mysqli_fetch_array($r, MYSQLI_ASSOC); }
+    function internalNumRows($r) { return @mysqli_num_rows($r); }
+    function internalNumFields($r) { return @mysqli_num_fields($r); }
+    function internalFetchField($r, $i) { return @mysqli_fetch_field_direct($r, $i); }
+
+    function internalQuery($str)
+    {
+        $this->last_error = '';
+        if (($this->LinkID === false) && (!$this->internalConnect())) return false;
+        $str = str_replace('%prefix%', (defined('DB_PREFIX')?DB_PREFIX:''), $str);
+        
+        $id = @mysqli_query($this->LinkID, $str);
+        if (!$id) {
+            $this->last_error = mysqli_error($this->LinkID);
+            if($GLOBALS['DebugLevel']) echo "<div style='color:red; border:1px solid red; padding:5px;'>SQL Error: ".$this->last_error."<br>Query: ".$str."</div>";
+        }
+        return $id;
+    }
+
+    function lock($tables=null) { return true; } // Not vital for local
+    function unlock() { return true; }
+    
+    function is_table($TableName) {
+        $res = $this->internalQuery("SHOW TABLES LIKE '".(defined('DB_PREFIX')?DB_PREFIX:'').$TableName."'");
+        return (mysqli_num_rows($res) == 1);
+    }
+
+    function version() { return 5.7; }
+}
+?>
+
+## 📝 STATUS & TASKS
+# Project Context
+
+**Стек:**
+*   Legacy PHP 5.6
+*   Apache
+*   MySQL 5.7
+
+**Среда:**
+*   Docker (docker-compose)
+
+**Порты:**
+*   Сайт: http://localhost:8090
+*   phpMyAdmin: http://localhost:8090 (в текущей конфигурации phpMyAdmin не вынесен на отдельный порт, используется встроенный или внешний клиент, но в docker-compose.yml порт 8090 проброшен для web. *Уточнение: phpMyAdmin в текущем docker-compose.yml не описан, но пользователь упоминал порт 8080. Возможно, он запущен отдельно.*)
+*   DB: 3306
+
+**Важные хаки и настройки:**
+1.  **HTTPS:** В `.htaccess` отключен редирект на HTTPS (закомментированы правила RewriteRule). В коде (config) также отключены проверки HTTPS.
+2.  **Debug:** В `includes/config/_config.inc.php` установлен `$DebugLevel = 0`. В `includes/php/classes/base/debuginfo.php` добавлен принудительный `return;` для подавления вывода отладки.
+3.  **SSL:** Проверка SSL отключена в конфигурации.
+4.  **URLs:** В базе данных ссылки `https://diti.by` и `http://diti.by` заменены на `http://localhost:8090`. Исправлена проблема двойного порта (`localhost:8090:8090`) путем изменения `$SiteUrl` в конфиге на `localhost`.
+
+**Структура:**
+*   `includes/` - ядро и конфигурация.
+*   `includes/templates/` - шаблоны (Smarty-like).
+*   `docker-compose.yml` - конфигурация Docker.
+*   `user2160086_timistkas_sportmax.sql` - дамп базы данных (автоимпорт при первом запуске).
+
+# Workflow
+
+**ПРАВИЛО АВТО-КОММИТА:**
+После каждого успешного изменения кода, исправленного бага или выполнения SQL-запроса, ОБЯЗАТЕЛЬНО автоматически создавать Git-коммит.
+Команда: `git add . && git commit -m "Описание того, что именно было сделано"`.
+
+# Инструкция по запуску
+
+**Сценарий старта сессии:**
+Если пользователь пишет "Старт" или "Статус", я (ИИ) обязан:
+1.  Прочитать `docs/CHANGELOG.md` (что было сделано последним).
+2.  Прочитать `docs/PROJECT_PLAN.md` (на каком мы шаге).
+3.  Проверить `git status` (нет ли незакоммиченных изменений или ошибок).
+4.  Выдать краткую сводку: "Состояние проекта: Ок. Последний раз мы закончили [то-то]. Следующий шаг по плану: [такой-то]. Приступаем?"

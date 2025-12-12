@@ -240,6 +240,39 @@ function regexp_escape($str)
         return preg_quote($str, '/');
 }
 
+/**
+ * Normalize media URLs that may contain hardcoded domains.
+ *
+ * If a URL contains diti.by or localhost/127.0.0.1 domains, we strip the
+ * scheme/host part and return a host-relative path so assets load correctly
+ * on the current environment.
+ */
+function normalize_media_url($url)
+{
+        if (empty($url) || !is_string($url)) {
+                return $url;
+        }
+
+        $parsed = @parse_url($url);
+
+        if (!is_array($parsed)) {
+                return $url;
+        }
+
+        $host = isset($parsed['host']) ? strtolower($parsed['host']) : '';
+
+        if ($host && (preg_match('/(^|\.)diti\.by$/', $host)
+                || $host === 'localhost'
+                || $host === '127.0.0.1')) {
+                $path = isset($parsed['path']) ? $parsed['path'] : '';
+                $query = isset($parsed['query']) ? ('?' . $parsed['query']) : '';
+
+                return '/' . ltrim($path, '/') . $query;
+        }
+
+        return $url;
+}
+
 function get_base_url($https = false)
 {
         global $SiteUrl, $HTTPSSiteUrl, $HttpName, $SHttpName, $RootPath;

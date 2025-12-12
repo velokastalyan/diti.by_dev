@@ -21,7 +21,7 @@
 		<div class="twelve columns">
 			<div class="row">
 				<div class="two columns">
-					<a href="<? echo $HTTP; ?>" id="logo"><img src="<? echo $HTTP; ?>images/logo.png" alt="Интернет-магазин спортивных товаров: продажа велосипедов, сноубордов, скейтов. Минск."></a>
+                    <a href="<? echo $HTTP; ?>" id="logo"><img src="<? echo normalize_media_url($HTTP.'images/logo.png'); ?>" alt="Интернет-магазин спортивных товаров: продажа велосипедов, сноубордов, скейтов. Минск."></a>
 				</div>
 				<div class="ten columns">
 					<div class="top_panel">

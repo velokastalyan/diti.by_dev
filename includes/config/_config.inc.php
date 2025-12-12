@@ -26,7 +26,9 @@ $isHttps = ($requestScheme === 'https') || (isset($_SERVER['HTTPS']) && $_SERVER
 $hostWithPort = !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
 $hostParts = explode(':', $hostWithPort, 2);
 $hostName = $hostParts[0];
-$resolvedPort = $hostParts[1] ?? (!empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : ($isHttps ? '443' : '80'));
+$resolvedPort = isset($hostParts[1])
+        ? $hostParts[1]
+        : (!empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : ($isHttps ? '443' : '80'));
 
 // Only expose port in URL when it is non-standard for the current scheme.
 $portForUrl = ((!$isHttps && $resolvedPort != '80') || ($isHttps && $resolvedPort != '443')) ? $resolvedPort : '';

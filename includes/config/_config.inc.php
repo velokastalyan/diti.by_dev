@@ -13,7 +13,15 @@ function get_formatted_microtime() {
 }
 $_t1 = get_formatted_microtime();
 
-$DebugLevel = 255;
+$httpHostHeader = !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+$serverPort = !empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '';
+$appEnv = getenv('APP_ENV');
+
+$isLocalHost = (stripos($httpHostHeader, 'localhost') !== false) || (stripos($httpHostHeader, '127.0.0.1') !== false);
+$isDevPort = ($serverPort == '8091');
+$isDevEnvironment = ($isLocalHost || $isDevPort || (is_string($appEnv) && strtolower($appEnv) === 'dev'));
+
+$DebugLevel = $isDevEnvironment ? 255 : 0;
 $SiteName = 'Sportmax Local';
 
 // --- URL/port configuration ---
@@ -95,12 +103,24 @@ define('BASE_CONTROLS_TEMPLATE_PATH', $FilePath . 'includes/templates/base/contr
 define('CUSTOM_CONTROLS_TEMPLATE_PATH', $FilePath . 'includes/templates/custom/controls/');
 define('ROOT', $FilePath);
 
+$ErrorLogPath = $FilePath . 'var/log/php_error.log';
+$errorLogDir = dirname($ErrorLogPath);
+if (!is_dir($errorLogDir)) {
+    @mkdir($errorLogDir, 0777, true);
+}
+
+define('IS_DEV_ENVIRONMENT', $isDevEnvironment);
+define('DEV_ERROR_LOG_PATH', $ErrorLogPath);
+
 @ini_set('session.use_only_cookies', '1');
 @ini_set('arg_separator.output', '&amp;');
 
-if ($DebugLevel) {
-    @error_reporting(E_ALL);
+if (IS_DEV_ENVIRONMENT) {
+    @error_reporting(E_ALL | E_STRICT);
     @ini_set('display_errors', '1');
+    @ini_set('log_errors', '1');
+    @ini_set('html_errors', '1');
+    @ini_set('error_log', DEV_ERROR_LOG_PATH);
 } else {
     @error_reporting(0);
 }

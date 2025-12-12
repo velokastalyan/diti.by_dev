@@ -12,11 +12,11 @@
                    <?  if ($item1['link']): ?>
                         <a href="<? echo htmlspecialchars($item1['link']); ?>">
                     <? endif; ?>
-						<div class="rsContent">
+                                            <div class="rsContent">
 
-							<img class="rsImg" src="<? echo $HTTP; ?>pub/banners/<? echo $item1['id']; ?>/<? echo $item1['image_filename']; ?>" alt="" />
+                                                    <img class="rsImg" src="<? echo normalize_media_url($HTTP.'pub/banners/'.$item1['id'].'/'.$item1['image_filename']); ?>" alt="" />
 
-						</div>
+                                            </div>
                          <?  if ($item1['link']): ?>
                             </a>
                          <? endif; ?>
@@ -61,11 +61,11 @@
 
 									<? endif; ?>
 
-									<span class="image">
+                                                                        <span class="image">
 
-										<img src="<? echo $HTTP; ?>pub/products/<? echo $item1['id']; ?>/180x190/<? echo $item1['image']; ?>" alt="<? echo htmlspecialchars($item1['title']); ?>">
+                                                                                <img src="<? echo normalize_media_url($HTTP.'pub/products/'.$item1['id'].'/180x190/'.$item1['image']); ?>" alt="<? echo htmlspecialchars($item1['title']); ?>">
 
-									</span>
+                                                                        </span>
 
 									<span class="name_product">
 

@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Serve existing files and directories as-is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Explicitly allow static asset roots
+RewriteRule ^(pub/|images/|css/|js/|img/) - [L]
+
+# Fallback to index.php for application routes
+RewriteRule ^ index.php [L]
+</IfModule>

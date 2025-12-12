@@ -12,13 +12,18 @@ class CIndexPage extends CFrontPage {
 		parent::__construct($app, $template);	
 	}
 	
-	function on_page_init(){
-		parent::on_page_init();
+        function on_page_init(){
+                parent::on_page_init();
         $this->Static_page = $this->Application->get_module('Pages');
         $page_rs = $this->Static_page->get_page_by_uri('index');
 
         $this->tv['page_found'] = false;
         $this->tv['page_arr'] = array();
+        $this->tv['vd_found'] = false;
+        $this->tv['slider_found'] = false;
+        $this->tv['recommend_found'] = false;
+        $this->tv['recommend'] = array();
+        $this->tv['news_found'] = false;
 
         if ($page_rs !=false && !$page_rs->eof())
         {

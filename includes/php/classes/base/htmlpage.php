@@ -14,13 +14,15 @@ class CHTMLPage extends CObject {
         public $is_secure = false;
         public $IsSecure = false;
         public $m_Controls = array();
-	public $IMAGES;
-	public $last_modified;
-	protected $PAGE_TITLE;
-	protected $PAGE_KEYWORDS;
-	protected $PAGE_DESCRIPTION;
-	public $HTTP;
-	public $HTTPS;
+        public $IMAGES;
+        public $last_modified;
+        protected $PAGE_TITLE;
+        protected $PAGE_KEYWORDS;
+        protected $PAGE_DESCRIPTION;
+        public $HTTP;
+        public $HTTPS;
+        protected $state = HTML_PAGE_DEFAULT;
+        protected $state_info = '';
 	
 	function CHTMLPage(CApp $app, $content = ''){
 		parent::CObject();

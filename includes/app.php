@@ -7,6 +7,13 @@ define('OBJECT_ACTIVE', 1);
 define('OBJECT_NOT_ACTIVE', 0);
 define('OBJECT_SUSPENDED', 2);
 
+if (!defined('HTML_PAGE_ERROR')) define('HTML_PAGE_ERROR', 0);
+if (!defined('HTML_PAGE_DEFAULT')) define('HTML_PAGE_DEFAULT', 1);
+if (!defined('HTML_PAGE_REDIRECT')) define('HTML_PAGE_REDIRECT', 2);
+if (!defined('HTML_PAGE_LOGIN')) define('HTML_PAGE_LOGIN', 3);
+if (!defined('HTML_PAGE_MESSAGE_INFO')) define('HTML_PAGE_MESSAGE_INFO', 4);
+if (!defined('HTML_PAGE_MESSAGE_ERROR')) define('HTML_PAGE_MESSAGE_ERROR', 5);
+
 define('TH_IMAGE_WIDTH', 150);
 define('TH_IMAGE_HEIGHT', 225);
 

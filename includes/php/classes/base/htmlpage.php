@@ -8,11 +8,12 @@ class CHTMLPage extends CObject {
 	protected $tv;
 	protected $h_header = '_header.tpl';
 	protected $h_body = '_body.tpl';
-	protected $h_footer = '_footer.tpl';
-	protected $template;
-	public $no_html;
-	public $is_secure;
-	public $m_Controls = array();
+        protected $h_footer = '_footer.tpl';
+        protected $template;
+        public $no_html;
+        public $is_secure = false;
+        public $IsSecure = false;
+        public $m_Controls = array();
 	public $IMAGES;
 	public $last_modified;
 	protected $PAGE_TITLE;

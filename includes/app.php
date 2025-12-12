@@ -21,6 +21,9 @@ define('RECORDSET_FIRST_ITEM', '- Select from the list -');
 
 class CApp extends CApplication
 {
+    public $VKauth = false;
+    public $FBauth = false;
+
     function CApp()
     {
 		//$this->locale = 'ru_RU';

@@ -20,16 +20,16 @@ class  CRouter  {
         $this->arg_index = 1;
 	}
 	
-	function add_route($template, $class, $php_path, $tpl_path, $args_arr = null)
-	{
+        function add_route($template, $class, $php_path, $tpl_path = null, $args_arr = null)
+        {
 		$parts = array();
 		$parts_tmp = explode(".", $template);
 		$path = substr($parts_tmp[0], 1, strlen($parts_tmp[0]));
 		if (strlen($path) > 0) {
 			$parts = explode("/", $path);
 		}
-		$this->_routes[] = array('template' => $template, 'class' => $class, 'php_path' => $php_path, 'tpl_path' => $tpl_path, 'args_arr' => $args_arr, 'parts' => $parts);
-	}
+                $this->_routes[] = array('template' => $template, 'class' => $class, 'php_path' => $php_path, 'tpl_path' => $tpl_path, 'args_arr' => $args_arr, 'parts' => $parts);
+        }
 	
 	function parse_uri($route_str, $uri_str, $key = 0, $args_arr)
 	{

@@ -17,6 +17,8 @@ $httpHostHeader = !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
 $serverPort = !empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '';
 $appEnv = getenv('APP_ENV');
 
+@date_default_timezone_set('Europe/Minsk');
+
 $isLocalHost = (stripos($httpHostHeader, 'localhost') !== false) || (stripos($httpHostHeader, '127.0.0.1') !== false);
 $isDevPort = ($serverPort == '8091');
 $isDevEnvironment = ($isLocalHost || $isDevPort || (is_string($appEnv) && strtolower($appEnv) === 'dev'));

@@ -1,5 +1,6 @@
 <?php
 global $ajaxValidator;
+$tpl_path = defined('CUSTOM_TEMPLATE_PATH') ? CUSTOM_TEMPLATE_PATH : '';
 $router = $app->get_module('Router');
 $router->add_route('/', 'CIndexPage', 'CIndexPage.php', 'indexpage.tpl');
 $router->add_route('/index.html', 'CIndexPage', 'CIndexPage.php', 'indexpage.tpl');

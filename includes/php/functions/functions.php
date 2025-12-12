@@ -237,7 +237,53 @@ function system_die()
 
 function regexp_escape($str)
 {
-	return preg_quote($str, '/');
+        return preg_quote($str, '/');
+}
+
+function get_base_url($https = false)
+{
+        global $SiteUrl, $HTTPSSiteUrl, $HttpName, $SHttpName, $RootPath;
+
+        $scheme = $https ? $SHttpName : $HttpName;
+        $host = $https ? ($HTTPSSiteUrl ?: $SiteUrl) : $SiteUrl;
+        $host = rtrim($host, '/');
+
+        $base = $scheme . '://' . $host;
+
+        $basePath = strlen($RootPath) ? $RootPath : '/';
+        if ($basePath[0] != '/') {
+                $basePath = '/' . $basePath;
+        }
+        $basePath = rtrim($basePath, '/') . '/';
+
+        $base .= $basePath;
+
+        static $logged = false;
+        if (!$logged && preg_match('/^(localhost|127\.0\.0\.1)/', $host)) {
+                error_log('[diti.by] Resolved base URL: ' . $base);
+                $logged = true;
+        }
+
+        return $base;
+}
+
+function sanitize_broken_prefix($page_url)
+{
+        if (preg_match('/^https?:\/\//i', $page_url)) {
+            return $page_url;
+        }
+
+        $page_url = ltrim($page_url);
+
+        if (strpos($page_url, '/:/') === 0) {
+                $page_url = '/' . ltrim(substr($page_url, 3), '/');
+        }
+
+        if (strpos($page_url, ':/') === 0) {
+                $page_url = '/' . ltrim(substr($page_url, 2), '/');
+        }
+
+        return $page_url;
 }
 
 /*
@@ -249,25 +295,30 @@ bool https - create url with https protocol
 bool always_add - always create full path info
 */
 function get_url($page_url=null, $acc_arr = array(), $keep_old_arg = true, $https = false, $always_add = false){
-	global $SiteUrl, $HTTPSSiteUrl;
-	global $HttpName, $HttpPort, $SHttpName, $SHttpPort;
-	global $RootPath, $ssl_root;
-	if (is_null($page_url)) $page_url = $_SERVER['PHP_SELF'];
-	if (preg_match('/^http/', $page_url)) return $page_url;
-	if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on'))
-		$page_url = preg_replace('/^'.regexp_escape($ssl_root).'/', '', $page_url);
-	else
-		$page_url = preg_replace('/^'.regexp_escape($RootPath).'/', '', $page_url);
-	$page_url = preg_replace('/^'.regexp_escape('/').'/', '', $page_url);
-	$url = '';
-	if ($https) $url .= $SHttpName . ':' . '//' . $HTTPSSiteUrl . ':' . $SHttpPort;
-	elseif (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on') || $always_add) $url .= $HttpName . ':' . '//' . $SiteUrl . ':' . $HttpPort;
-	if ($https) $url .= $ssl_root;
-	else $url .= $RootPath;
-	$url .= $page_url;
-	if (!is_array($acc_arr)) system_die();
-	if ($keep_old_arg) $acc_arr = array_merge($_GET, $acc_arr);
-	if (sizeof($acc_arr)> 0){
+        global $RootPath, $ssl_root;
+        if (is_null($page_url)) $page_url = $_SERVER['PHP_SELF'];
+
+        $page_url = sanitize_broken_prefix($page_url);
+        if (preg_match('/^https?:\/\//i', $page_url)) return $page_url;
+
+        if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on'))
+                $page_url = preg_replace('/^'.regexp_escape($ssl_root).'/', '', $page_url);
+        else
+                $page_url = preg_replace('/^'.regexp_escape($RootPath).'/', '', $page_url);
+        $page_url = preg_replace('/^'.regexp_escape('/').'/', '', $page_url);
+
+        if ($https)
+                $url = get_base_url(true);
+        elseif (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on') || $always_add)
+                $url = get_base_url(false);
+        else {
+                $url = rtrim(strlen($RootPath) ? $RootPath : '/', '/') . '/';
+        }
+
+        $url .= $page_url;
+        if (!is_array($acc_arr)) system_die();
+        if ($keep_old_arg) $acc_arr = array_merge($_GET, $acc_arr);
+        if (sizeof($acc_arr)> 0){
 		$c = '?';
 		foreach ($acc_arr as $key => $val){
 			$url .= $c . $key . '=' . urlencode($val);

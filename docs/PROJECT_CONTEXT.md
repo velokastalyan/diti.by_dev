@@ -18,7 +18,7 @@ cat > GEM_KNOWLEDGE_BASE.md << 'EOF'
 
 ### 🌍 Web Environment
 * **Container Name:** `ditiby-web-1`
-* **Local URL:** http://localhost:8090
+* **Local URL:** http://localhost:8091
 * **Internal Web Root:** `/var/www/html`
 * **External Project Root:** `./` (Current Directory)
 

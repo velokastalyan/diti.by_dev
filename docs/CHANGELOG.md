@@ -8,7 +8,7 @@
 - **Git:** Initialized Git repository and added `.gitignore`.
 
 ### Changed
-- **Port Configuration:** Changed web container port to `8090` to avoid conflicts.
+- **Port Configuration:** Updated web container port to `8091` for local development.
 - **Database Config:** Updated `includes/config/_config.inc.php` to use environment variables for DB credentials and set `SiteUrl` to `localhost` (fixing double port issue).
 - **Debug Mode:** Disabled debug output by setting `$DebugLevel = 0` in config and forcing return in `debuginfo.php`. Re-enabled standard PHP error reporting in `index.php` for critical errors.
 - **HTTPS/Redirects:** Renamed `htaccess_off` to `.htaccess` and commented out HTTPS redirect rules. Disabled PHP-level HTTPS checks.

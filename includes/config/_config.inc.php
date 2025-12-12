@@ -16,31 +16,38 @@ $_t1 = get_formatted_microtime();
 $DebugLevel = 255;
 $SiteName = 'Sportmax Local';
 
-// --- ИСПРАВЛЕНИЕ: Указываем только хост, без порта ---
-/**
- * URL/port configuration (Docker dev on localhost:8091)
- * This block replaces the old "ИСПРАВЛЕНИЕ" section above.
- */
+// --- URL/port configuration ---
+$requestScheme = !empty($_SERVER['REQUEST_SCHEME'])
+        ? $_SERVER['REQUEST_SCHEME']
+        : ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http');
 
- $requestScheme = !empty($_SERVER['REQUEST_SCHEME'])
- ? $_SERVER['REQUEST_SCHEME']
- : ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http');
+$isHttps = ($requestScheme === 'https') || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
 
 $hostWithPort = !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+$hostParts = explode(':', $hostWithPort, 2);
+$hostName = $hostParts[0];
+$resolvedPort = $hostParts[1] ?? (!empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : ($isHttps ? '443' : '80'));
 
-// Base site URL (includes trailing slash)
-$SiteUrl      = $requestScheme . '://' . $hostWithPort . '/';
-$HttpsSiteUrl = $SiteUrl;
+// Only expose port in URL when it is non-standard for the current scheme.
+$portForUrl = ((!$isHttps && $resolvedPort != '80') || ($isHttps && $resolvedPort != '443')) ? $resolvedPort : '';
+
+$SiteHost = $hostName;
+$SitePort = $portForUrl;
+$SiteUrl = $SiteHost . ($SitePort ? ':' . $SitePort : '');
+$HTTPSSiteUrl = $SiteUrl;
+$HttpsSiteUrl = $HTTPSSiteUrl;
 
 $RootPath = '/';
-$Ssl_root = '/';
+$ssl_root = $RootPath;
+$Ssl_root = $ssl_root;
 
-// Don't force custom ports; rely on HTTP_HOST which уже содержит :8091.
-$HttpPort  = '';
-$HttpsPort = '';
-
+// Scheme/port names remain for backwards compatibility.
+$HttpPort  = (!$isHttps ? $SitePort : '');
+$HttpsPort = ($isHttps ? $SitePort : '');
 $HttpName  = 'http';
-$HttpsName = 'http';
+$HttpsName = 'https';
+$SHttpName = 'https';
+$SHttpPort = $HttpsPort;
 
 $AdministratorEmail = 'info@diti.by';
 $AdministratorName = 'sportmax';

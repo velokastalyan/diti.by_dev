@@ -27,10 +27,10 @@ class CIndexPage extends CFrontPage {
             row_to_vars($page_rs, $this->tv['page_arr'][count($this->tv['page_arr'])+1]);
         }
 
-        $this->tv['meta_title'] = $this->tv['page_arr'][1]['meta_title'];
-        $this->tv['meta_description'] = $this->tv['page_arr'][1]['meta_description'];
-        $this->tv['meta_keywords'] = $this->tv['page_arr'][1]['meta_keywords'];
-	}
+        $this->tv['meta_title'] = (isset($this->tv['page_arr'][1]['meta_title'])) ? $this->tv['page_arr'][1]['meta_title'] : '';
+        $this->tv['meta_description'] = (isset($this->tv['page_arr'][1]['meta_description'])) ? $this->tv['page_arr'][1]['meta_description'] : '';
+        $this->tv['meta_keywords'] = (isset($this->tv['page_arr'][1]['meta_keywords'])) ? $this->tv['page_arr'][1]['meta_keywords'] : '';
+        }
 	
 	function parse_data(){
 		

@@ -228,40 +228,54 @@ class CCategories
 			$search_arr = $categories_rs->get_2darray();
 			while (!$categories_rs->eof())
 			{
-				if(intval($categories_rs->get_field('deep')) == 1)
-				{
-					if(!array_key_exists($categories_rs->get_field('id'), $categories_arr))
-						row_to_vars($categories_rs, $categories_arr[$categories_rs->get_field('id')]);
-				}
-				elseif (intval($categories_rs->get_field('deep')) == 2)
-				{
-					if(array_key_exists($categories_rs->get_field('parent_id'), $categories_arr))
-					{
-						if(!array_key_exists($categories_rs->get_field('id'), $categories_arr[$categories_rs->get_field('parent_id')]['children']))
-						{
-							if(!is_array($categories_arr[$categories_rs->get_field('parent_id')]['children']))
-								$categories_arr[$categories_rs->get_field('parent_id')]['children'] = array();
+                                if(intval($categories_rs->get_field('deep')) == 1)
+                                {
+                                        if(!array_key_exists($categories_rs->get_field('id'), $categories_arr))
+                                        {
+                                                row_to_vars($categories_rs, $categories_arr[$categories_rs->get_field('id')]);
 
-							row_to_vars($categories_rs, $categories_arr[$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]);
-						}
-					}
-				}
-				elseif(intval($categories_rs->get_field('deep')) == 3)
-				{
-					$lvl2_k = array_search_assoc($search_arr, array('id' => $categories_rs->get_field('parent_id')));
-					if($lvl2_k !== false)
-					{
-						if(array_key_exists($search_arr[$lvl2_k]['parent_id'], $categories_arr) && array_key_exists($categories_rs->get_field('parent_id'), $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children']))
-						{
-							if(!array_key_exists($categories_rs->get_field('id'), $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children']))
-							{
-								if(!is_array($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children']))
-									$categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children'] = array();
+                                                if(!isset($categories_arr[$categories_rs->get_field('id')]['children']) || !is_array($categories_arr[$categories_rs->get_field('id')]['children']))
+                                                        $categories_arr[$categories_rs->get_field('id')]['children'] = array();
+                                        }
+                                }
+                                elseif (intval($categories_rs->get_field('deep')) == 2)
+                                {
+                                        if(array_key_exists($categories_rs->get_field('parent_id'), $categories_arr))
+                                        {
+                                                if(!isset($categories_arr[$categories_rs->get_field('parent_id')]['children']) || !is_array($categories_arr[$categories_rs->get_field('parent_id')]['children']))
+                                                        $categories_arr[$categories_rs->get_field('parent_id')]['children'] = array();
 
-								row_to_vars($categories_rs, $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]);
-							}
-						}
-					}
+                                                if(!array_key_exists($categories_rs->get_field('id'), $categories_arr[$categories_rs->get_field('parent_id')]['children']))
+                                                {
+                                                        row_to_vars($categories_rs, $categories_arr[$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]);
+
+                                                        if(!isset($categories_arr[$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]['children']) || !is_array($categories_arr[$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]['children']))
+                                                                $categories_arr[$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]['children'] = array();
+                                                }
+                                        }
+                                }
+                                elseif(intval($categories_rs->get_field('deep')) == 3)
+                                {
+                                        $lvl2_k = array_search_assoc($search_arr, array('id' => $categories_rs->get_field('parent_id')));
+                                        if($lvl2_k !== false)
+                                        {
+                                                if(array_key_exists($search_arr[$lvl2_k]['parent_id'], $categories_arr))
+                                                {
+                                                        if(!isset($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children']) || !is_array($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children']))
+                                                                $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'] = array();
+
+                                                        if(!isset($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]) || !is_array($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]))
+                                                                $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')] = array();
+
+                                                        if(!isset($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children']) || !is_array($categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children']))
+                                                                $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children'] = array();
+
+                                                        if(!array_key_exists($categories_rs->get_field('id'), $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children']))
+                                                        {
+                                                                row_to_vars($categories_rs, $categories_arr[$search_arr[$lvl2_k]['parent_id']]['children'][$categories_rs->get_field('parent_id')]['children'][$categories_rs->get_field('id')]);
+                                                        }
+                                                }
+                                        }
 				}
 				$categories_rs->next();
 			}

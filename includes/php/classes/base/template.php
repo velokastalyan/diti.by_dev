@@ -577,13 +577,14 @@ class CForm
 
 	static function end()
 	{
-		global $formname, $_it_fs;
-		if(strlen($formname) > 0)
-		{
-			echo '<input type="hidden" name="_it_fs" value="'. base64_encode(join(',', $_it_fs[$formname])) .'" />';
-			echo '</form>';
-			$formname = '';
-		}
+                global $formname, $_it_fs;
+                if(strlen($formname) > 0)
+                {
+                        $it_fs = (isset($_it_fs[$formname]) && is_array($_it_fs[$formname])) ? $_it_fs[$formname] : array();
+                        echo '<input type="hidden" name="_it_fs" value="'. base64_encode(join(',', $it_fs)) .'" />';
+                        echo '</form>';
+                        $formname = '';
+                }
 		else system_die('closing tag can not be used because of lack of opening <form>');	
 	}
 

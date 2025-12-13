@@ -61,27 +61,33 @@ class CBrands
 		return (($rs !== false && !$rs->eof()) ? $rs : false);
 	}
 
-	function get_by_category_uri($uri)
-	{
-		if (!is_string($uri) || strlen($uri) < 1)
-		{
-			$this->last_error = $this->Application->Localizer->get_string('invalid_input');
-			return false;
-		}
+        function get_by_category_uri($uri, $parentPathUri = null)
+        {
+                if (!is_string($uri) || strlen($uri) < 1)
+                {
+                        $this->last_error = $this->Application->Localizer->get_string('invalid_input');
+                        return false;
+                }
 
-		$rs = $this->DataBase->select_custom_sql("SELECT
-		b.id as id,
-		b.title as title,
-		b.uri as uri
-		FROM %prefix%brand as b
-		JOIN %prefix%category as c on (c.uri = '".mysql_real_escape_string($uri)."')
-		JOIN %prefix%product as p on (p.category_id = c.id)
-		WHERE p.brand_id = b.id
-		GROUP by b.id
-		");
+                $parentCondition = '';
+                if (is_string($parentPathUri) && strlen($parentPathUri) > 0)
+                {
+                        $parentCondition = " AND c.parent_path_uri = '" . mysql_real_escape_string($parentPathUri) . "'";
+                }
 
-		return (($rs !== false && !$rs->eof()) ? $rs : false);
-	}
+                $rs = $this->DataBase->select_custom_sql("SELECT
+                b.id as id,
+                b.title as title,
+                b.uri as uri
+                FROM %prefix%brand as b
+                JOIN %prefix%category as c on (c.uri = '".mysql_real_escape_string($uri)."'" . $parentCondition . ")
+                JOIN %prefix%product as p on (p.category_id = c.id)
+                WHERE p.brand_id = b.id
+                GROUP by b.id
+                ");
+
+                return (($rs !== false && !$rs->eof()) ? $rs : false);
+        }
 
 	function get_brand_for_sale()
 	{

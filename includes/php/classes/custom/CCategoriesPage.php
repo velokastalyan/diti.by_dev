@@ -95,29 +95,60 @@ class CCategoriesPage extends CFrontPage  {
 	}
 
 
-	function bind_brand_products()
-	{
-		$this->Brands = $this->Application->get_module('Brands');
+        function bind_brand_products()
+        {
+                $this->Brands = $this->Application->get_module('Brands');
 
-		if ($this->tv['c_id'] != 31)
-		$brand_rs = $this->Brands->get_by_category_uri($this->tv['category_uri'], $this->tv['c_parent_path_uri']);
-		else $brand_rs = $this->Brands->get_brand_for_sale();
+                $brand_rs = false;
+                $brand_source = '';
+
+                if ($this->tv['c_id'] != 31 && intval($this->tv['c_id']) > 0)
+                {
+                        $brand_rs = $this->Brands->get_category_brands($this->tv['c_id'], -1, -1, -1);
+                        $brand_source = 'category_id';
+                }
+
+                if (($brand_rs === false || $brand_rs->eof()) && $this->tv['c_id'] != 31)
+                {
+                        $brand_rs = $this->Brands->get_by_category_uri($this->tv['category_uri'], $this->tv['c_parent_path_uri']);
+                        $brand_source = ($brand_source ? $brand_source . ', ' : '') . 'category_uri';
+                }
+
+                if ($this->tv['c_id'] == 31)
+                {
+                        $brand_rs = $this->Brands->get_brand_for_sale();
+                        $brand_source = 'sale';
+                }
 
 
-		$this->tv['brand_found'] = false;
-		$this->tv['brand_arr'] = array();
+                $this->tv['brand_found'] = false;
+                $this->tv['brand_arr'] = array();
 
-		if ($brand_rs != false && !$brand_rs->eof())
-		{
-			$this->tv['brand_found'] = true;
+                $brand_count = 0;
 
-			while(!$brand_rs->eof())
-			{
-				row_to_vars($brand_rs, $this->tv['brand_arr'][count($this->tv['brand_arr']) + 1]);
+                if ($brand_rs != false && !$brand_rs->eof())
+                {
+                        $this->tv['brand_found'] = true;
 
-				$brand_rs->next();
-			}
-		}
+                        while(!$brand_rs->eof())
+                        {
+                                row_to_vars($brand_rs, $this->tv['brand_arr'][count($this->tv['brand_arr']) + 1]);
+                                $brand_count++;
+                                $brand_rs->next();
+                        }
+                }
 
-	}
+                if (IS_DEV_ENVIRONMENT && (!$this->tv['brand_found'] || $brand_count === 0))
+                {
+                        dev_log_error('Brand filter empty on category page: ' . json_encode(array(
+                                'c_id' => $this->tv['c_id'],
+                                'category_uri' => $this->tv['category_uri'],
+                                'parent_path_uri' => $this->tv['c_parent_path_uri'],
+                                'brand_source' => $brand_source,
+                                'price_start' => $this->tv['price_start'],
+                                'price_end' => $this->tv['price_end']
+                        )));
+                }
+
+        }
 };

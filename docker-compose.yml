@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   web:
     build:
@@ -7,12 +5,15 @@ services:
     ports:
       - "8091:80"
     volumes:
-      - ./../diti.by_dev:/var/www/html
+      - ./:/var/www/html
+      - ${APACHE_VHOST_CONF:-./docker/apache/000-default.conf}:/etc/apache2/sites-available/000-default.conf:ro
     environment:
       DB_HOST: db
       DB_USER: sportuser
       DB_PASSWORD: m7z0L9sD4g
       DB_DATABASE: user2160086_timistskas_sportmax
+      APP_ENV: ${APP_ENV:-dev}
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8091}
     depends_on:
       - db
 

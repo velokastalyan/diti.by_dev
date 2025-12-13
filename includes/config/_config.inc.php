@@ -16,6 +16,9 @@ $_t1 = get_formatted_microtime();
 $httpHostHeader = !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
 $serverPort = !empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '';
 $appEnv = getenv('APP_ENV');
+$appBaseUrl = getenv('APP_BASE_URL') ?: getenv('SITE_URL');
+
+$rootPathFromEnv = null;
 
 @date_default_timezone_set('Europe/Minsk');
 
@@ -40,6 +43,32 @@ $resolvedPort = isset($hostParts[1])
         ? $hostParts[1]
         : (!empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : ($isHttps ? '443' : '80'));
 
+if ($appBaseUrl) {
+    $parsedBaseUrl = @parse_url($appBaseUrl);
+
+    if (is_array($parsedBaseUrl) && !empty($parsedBaseUrl['host'])) {
+        if (!empty($parsedBaseUrl['scheme'])) {
+            $requestScheme = $parsedBaseUrl['scheme'];
+            $isHttps = (strtolower($requestScheme) === 'https');
+        }
+
+        $hostName = $parsedBaseUrl['host'];
+
+        if (!empty($parsedBaseUrl['port'])) {
+            $resolvedPort = (string) $parsedBaseUrl['port'];
+        }
+
+        if (isset($parsedBaseUrl['path'])) {
+            $normalizedPath = '/' . ltrim($parsedBaseUrl['path'], '/');
+            $rootPathFromEnv = ($normalizedPath === '//') ? '/' : rtrim($normalizedPath, '/') . '/';
+        }
+    }
+}
+
+if (!$hostName) {
+    $hostName = 'localhost';
+}
+
 // Only expose port in URL when it is non-standard for the current scheme.
 $portForUrl = ((!$isHttps && $resolvedPort != '80') || ($isHttps && $resolvedPort != '443')) ? $resolvedPort : '';
 
@@ -49,7 +78,14 @@ $SiteUrl = $SiteHost . ($SitePort ? ':' . $SitePort : '');
 $HTTPSSiteUrl = $SiteUrl;
 $HttpsSiteUrl = $HTTPSSiteUrl;
 
-$RootPath = '/';
+$RootPath = $rootPathFromEnv ?: '/';
+if ($RootPath === '') {
+    $RootPath = '/';
+}
+if ($RootPath[0] !== '/') {
+    $RootPath = '/' . ltrim($RootPath, '/');
+}
+$RootPath = rtrim($RootPath, '/') . '/';
 $ssl_root = $RootPath;
 $Ssl_root = $ssl_root;
 

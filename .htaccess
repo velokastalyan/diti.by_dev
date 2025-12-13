@@ -9,6 +9,13 @@ RewriteRule ^ - [L]
 # Explicitly allow static asset roots
 RewriteRule ^(pub/|images/|css/|js/|img/) - [L]
 
+# Legacy: если запросили /pub/products/{id}/{file}.jpg,
+# а реально файл лежит в /pub/products/{id}/180x190/{file}.jpg — отдать его
+RewriteCond %{REQUEST_URI} ^/pub/products/([0-9]+)/([^/]+\.(?:jpe?g|png|gif|webp))$ [NC]
+RewriteCond %{DOCUMENT_ROOT}/pub/products/%1/%2 !-f
+RewriteCond %{DOCUMENT_ROOT}/pub/products/%1/180x190/%2 -f
+RewriteRule ^pub/products/([0-9]+)/([^/]+\.(?:jpe?g|png|gif|webp))$ /pub/products/$1/180x190/$2 [L]
+
 # Fallback to index.php for application routes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

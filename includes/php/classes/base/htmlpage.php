@@ -43,26 +43,35 @@ class CHTMLPage extends CObject {
 
 		global $RootPath, $ssl_root, $JSPath, $CSSPath, $ImagesPath, $HttpName, $HttpPort, $SHttpName, $SHttpPort, $SiteUrl, $HTTPSSiteUrl, $SiteName;
 
-		if (intval($HttpPort) != 80)
-			$http_port = ':'.$HttpPort;
-		else
-			$http_port = '';
-		if (intval($SHttpPort) != 443)
-			$shttp_port = ':'.$SHttpPort;
-		else
-			$shttp_port = '';
+                if (intval($HttpPort) != 80)
+                        $http_port = ':'.$HttpPort;
+                else
+                        $http_port = '';
+                if (intval($SHttpPort) != 443)
+                        $shttp_port = ':'.$SHttpPort;
+                else
+                        $shttp_port = '';
+
+                $http_port_effective = $http_port;
+                $shttp_port_effective = $shttp_port;
+                if (preg_match('~:\\d+$~', $SiteUrl)) {
+                        $http_port_effective = '';
+                }
+                if (preg_match('~:\\d+$~', $HTTPSSiteUrl)) {
+                        $shttp_port_effective = '';
+                }
 
 		if ( (isset($_SERVER['HTTPS'])) && (strcasecmp($_SERVER['HTTPS'],'on')==0) )
 		{
-			$this->tv['ROOT'] = $SHttpName.'://'.$HTTPSSiteUrl.$shttp_port.$ssl_root;
-			$this->tv['IS_SSL'] = true;
-		}
-		else
-			$this->tv['IS_SSL'] = false;
+                        $this->tv['ROOT'] = $SHttpName.'://'.$HTTPSSiteUrl.$shttp_port_effective.$ssl_root;
+                        $this->tv['IS_SSL'] = true;
+                }
+                else
+                        $this->tv['IS_SSL'] = false;
 
-		$this->tv['SITE_NAME'] = $SiteName;
-		$this->tv['HTTP'] = $this->HTTP = $HttpName.'://'.$SiteUrl.$http_port.$RootPath;
-		$this->tv['HTTPS'] = $this->HTTPS = $SHttpName.'://'.$HTTPSSiteUrl.$shttp_port.$ssl_root;
+                $this->tv['SITE_NAME'] = $SiteName;
+                $this->tv['HTTP'] = $this->HTTP = $HttpName.'://'.$SiteUrl.$http_port_effective.$RootPath;
+                $this->tv['HTTPS'] = $this->HTTPS = $SHttpName.'://'.$HTTPSSiteUrl.$shttp_port_effective.$ssl_root;
 
 		if ($this->IsSecure)
 			if (!$this->Application->User->is_logged())

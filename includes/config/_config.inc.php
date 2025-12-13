@@ -74,7 +74,13 @@ $portForUrl = ((!$isHttps && $resolvedPort != '80') || ($isHttps && $resolvedPor
 
 $SiteHost = $hostName;
 $SitePort = $portForUrl;
-$SiteUrl = $SiteHost . ($SitePort ? ':' . $SitePort : '');
+$SiteUrl = $SiteHost;
+if ($SitePort) {
+    if (!preg_match('~:\\d+$~', $SiteHost)) {
+        $SiteUrl .= ':' . $SitePort;
+    }
+}
+$SiteUrl = rtrim($SiteUrl, '/');
 $HTTPSSiteUrl = $SiteUrl;
 $HttpsSiteUrl = $HTTPSSiteUrl;
 

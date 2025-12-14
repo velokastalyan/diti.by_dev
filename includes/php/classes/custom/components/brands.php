@@ -120,31 +120,53 @@ class CBrands
 		return (($rs != false && !$rs->eof()) ? $rs : false);
 	}
 
-	function get_category_brands($category_id, $sex=-1, $price_start=-1, $price_end=-1)
-	{
-		if(!is_numeric($category_id) || intval($category_id) < 0 || !is_numeric($sex) || !is_numeric($price_start) || !is_numeric($price_end))
-		{
-			$this->last_error = $this->Application->Localizer->get_string('invalid_input');
-			return false;
-		}
+        function get_category_brands($category_id, $sex=-1, $price_start=-1, $price_end=-1)
+        {
+                if(!is_numeric($category_id) || intval($category_id) < 0 || !is_numeric($sex) || !is_numeric($price_start) || !is_numeric($price_end))
+                {
+                        $this->last_error = $this->Application->Localizer->get_string('invalid_input');
+                        return false;
+                }
 
-		if ($sex == -1) $q = ""; else $q = " and p.sex = '".$sex."'";
-		if ($price_start == -1 || $price_end == -1) $q2 = ""; else $q2 = " and ( price between '".$price_start."' and '".$price_end."')";
+                $category_id = intval($category_id);
 
-		$rs = $this->DataBase->select_custom_sql("
-		SELECT
-			b.id as id,
-			b.title as title,
-			b.uri as uri
-		FROM
-			%prefix%brand b
-			JOIN %prefix%product p on (p.brand_id = b.id)
-		WHERE
-			p.category_id = '".intval($category_id)."'
-			".$q.$q2."
-		GROUP by b.id
-		ORDER by title ASC
-		");
+                $category_info = $this->DataBase->select_custom_sql("SELECT id, uri, parent_path_uri FROM %prefix%category WHERE id = '".$category_id."' LIMIT 1");
+
+                if ($category_info === false || $category_info->eof())
+                {
+                        return false;
+                }
+
+                $category_path = trim($category_info->get_field('parent_path_uri'), '/');
+                $category_uri = trim($category_info->get_field('uri'), '/');
+                $full_path = trim(($category_path ? $category_path.'/' : '').$category_uri, '/');
+
+                $category_where = "c.id = '".$category_id."'";
+
+                if ($full_path !== '')
+                {
+                        $full_path_escaped = mysql_real_escape_string($full_path);
+                        $category_where .= " OR c.parent_path_uri = '".$full_path_escaped."' OR c.parent_path_uri LIKE '".$full_path_escaped."/%'";
+                }
+
+                if ($sex == -1) $q = ""; else $q = " and p.sex = '".$sex."'";
+                if ($price_start == -1 || $price_end == -1) $q2 = ""; else $q2 = " and ( price between '".$price_start."' and '".$price_end."')";
+
+                $rs = $this->DataBase->select_custom_sql("
+                SELECT
+                        b.id as id,
+                        b.title as title,
+                        b.uri as uri
+                FROM
+                        %prefix%brand b
+                        JOIN %prefix%product p on (p.brand_id = b.id)
+                        JOIN %prefix%category c on (p.category_id = c.id)
+                WHERE
+                        (".$category_where.")
+                        ".$q.$q2."
+                GROUP by b.id
+                ORDER by title ASC
+                ");
 
 		return (($rs !== false && !$rs->eof()) ? $rs : false);
 	}

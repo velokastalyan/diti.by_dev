@@ -70,12 +70,12 @@ class CCategoriesPage extends CFrontPage  {
 		return true;
 	}
 
-	function bind_data()
-	{
-		$rs = $this->Categories->get_by_uri($this->category_uri, InUri('parent_category_uri', false));
-		$this->tv['category_found'] = false;
-		if($rs !== false && !$rs->eof())
-		{
+        function bind_data()
+        {
+                $rs = $this->Categories->get_by_uri_with_children($this->category_uri, InUri('parent_category_uri', false));
+                $this->tv['category_found'] = false;
+                if($rs !== false && !$rs->eof())
+                {
 			row_to_vars($rs, $this->tv, false, 'c_');
 			$this->tv['meta_title'] = $rs->get_field('meta_title');
             $this->tv['meta_description'] = $rs->get_field('meta_description');

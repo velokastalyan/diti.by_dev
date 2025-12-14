@@ -81,6 +81,9 @@ else echo $c_title;
     ?></h1>
     <div class="three columns">
         <aside class="left_aside">
+            <?php if (!empty($_GET['debug_brands'])): ?>
+            <!-- brands_debug: found=<?php echo ($brand_found ? 1 : 0); ?> count=<?php echo (is_array($brand_arr) ? count($brand_arr) : 0); ?> brand=<?php echo isset($brand) ? $brand : ''; ?> uri=<?php echo isset($current_category_uri) ? $current_category_uri : ''; ?> category_id=<?php echo isset($current_category_id) ? $current_category_id : ''; ?> -->
+            <?php endif; ?>
             <form action="#" class="custom">
 				<? if ($brand_found): ?><? /*****************BRAND************/ ?>
                 <span class="title">Брэнд</span>
@@ -116,8 +119,6 @@ else echo $c_title;
                 <div class="layout-slider" style="width: 100%;margin-bottom: 25px;margin-top: 15px;">
                     <span style="display: inline-block; width: 100%; padding: 0 5px;"><input id="Slider2" type="slider" name="price" value="<?echo $PriceToSlider[0];?>;<?echo $PriceToSlider[1];?>" data-value-main="<? echo $HTTP.substr($sort1,1); if (substr_count($sort1, '?') > 0) echo '&'; else echo '?'; echo 'price='; ?>" /></span>
                 </div>
-
-                <? include dirname(__FILE__).'/brands.tpl'; ?>
 
                 <span class="title">Год выпуска</span><? /*****************year************/ ?>
                 <ul>

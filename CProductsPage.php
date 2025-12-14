@@ -29,7 +29,7 @@ class CProductsPage extends CFrontPage  {
 		if(!$this->c1_uri || !$this->c2_uri)
 			$this->page_not_found();
 
-		$this->tv['brand'] = InGet('brand', -1);
+                $this->tv['brand'] = intval(InGet('brand', -1));
 		$this->tv['price'] = InGet('price', -1);
 		$this->tv['sex'] = InGet('sex', -1);
         $this->tv['wheel'] = InGet('wheel', -1);
@@ -86,9 +86,9 @@ class CProductsPage extends CFrontPage  {
 		if($this->page < 1)
 			$this->page_not_found();
 
-		$this->Categories = $this->Application->get_module('Categories');
-		$this->Products = $this->Application->get_module('Products');
-		$this->Brands = $this->Application->get_module('Brands');
+                $this->Categories = $this->Application->get_module('Categories');
+                $this->Products = $this->Application->get_module('Products');
+                $this->Brands = $this->Application->get_module('Brands');
 
 	}
 
@@ -153,20 +153,22 @@ class CProductsPage extends CFrontPage  {
                         $this->tv['child_description_more'] = $rs->get_field('child_description_more');
 						$this->tv['c3_uri'] = $this->c1_uri.'/'.$this->c2_uri.'/'.$this->c3_uri;
 						$this->tv['ac_id'] = $this->category_id = $rs->get_field('child_id');
-						$this->PAGE_TITLE = $this->tv['meta_title'] = $rs->get_field('child_meta_title');
-						$this->PAGE_DESCRIPTION = $this->tv['meta_description'] = $rs->get_field('child_meta_description');
-					}
-					$rs->next();
-				}
-			}
+                                                $this->PAGE_TITLE = $this->tv['meta_title'] = $rs->get_field('child_meta_title');
+                                                $this->PAGE_DESCRIPTION = $this->tv['meta_description'] = $rs->get_field('child_meta_description');
+                                        }
+                                        $rs->next();
+                                }
+                        }
+                       $this->tv['current_category_uri'] = ($this->c3_uri ? $this->tv['c3_uri'] : $this->tv['c2_uri']);
+                       $this->tv['current_category_id'] = ($this->category_id ? $this->category_id : $this->tv['c_id']);
                    $this->tv['parent_cat_id'] = '-';
                    $parent_cat_id =  $this->Categories->get_by_uri($this->c2_uri);
                    if ($parent_cat_id !== false && !$parent_cat_id ->eof()){
                        $this->tv['parent_cat_id'] = $parent_cat_id->get_field('id');
                    }
-		}
-		else
-			$this->page_not_found();
+                }
+                else
+                        $this->page_not_found();
 
 	}
 
@@ -305,21 +307,20 @@ switch($this->tv['year'])
 
 	function bind_brand_for_products()
 	{
-		$this->Brands = $this->Application->get_module('Brands');
+                $this->Brands = $this->Application->get_module('Brands');
 
-		$price = explode(',',$this->tv['price']);
+                $price = explode(',',$this->tv['price']);
 
-		if ($price[0] == '') $price[0] = -1;
-		if ($price[1] == '') $price[1] = -1;
-		if ($price[0] == '1501000') $price[1] = '99999999999';
+                $price_start = (isset($price[0]) && $price[0] !== '') ? $price[0] : -1;
+                $price_end = (isset($price[1]) && $price[1] !== '') ? $price[1] : -1;
+                if ($price_start == '1501000') $price_end = '99999999999';
 
-		if (isset($this->tv['ac_id']))
-			$brand_rs = $this->Brands->get_category_brands($this->category_id, $this->tv['sex'], $price[0], $price[1]);
-		else
-			$brand_rs = $this->Brands->get_category_brands($this->tv['c_id'], $this->tv['sex'], $price[0], $price[1]);
+                $target_category_id = ($this->category_id ? $this->category_id : $this->tv['c_id']);
 
-		$this->tv['brand_arr'] = array();
-		$this->tv['brand_found'] = false;
+                $brand_rs = $this->Brands->get_category_brands($target_category_id, $this->tv['sex'], $price_start, $price_end);
+
+                $this->tv['brand_arr'] = array();
+                $this->tv['brand_found'] = false;
 
 		if ($brand_rs !=false)
 		{

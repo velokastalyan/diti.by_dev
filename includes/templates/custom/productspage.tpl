@@ -117,9 +117,7 @@ else echo $c_title;
                     <span style="display: inline-block; width: 100%; padding: 0 5px;"><input id="Slider2" type="slider" name="price" value="<?echo $PriceToSlider[0];?>;<?echo $PriceToSlider[1];?>" data-value-main="<? echo $HTTP.substr($sort1,1); if (substr_count($sort1, '?') > 0) echo '&'; else echo '?'; echo 'price='; ?>" /></span>
                 </div>
 
-                {if $brand_found}
                 {include file="custom/brands.tpl"}
-                {/if}
 
                 <span class="title">Год выпуска</span><? /*****************year************/ ?>
                 <ul>

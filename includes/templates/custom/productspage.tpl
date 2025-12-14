@@ -82,7 +82,7 @@ else echo $c_title;
     <div class="three columns">
         <aside class="left_aside">
             <?php if (!empty($_GET['debug_brands'])): ?>
-            <!-- brands_debug: found=<?php echo ($brand_found ? 1 : 0); ?> count=<?php echo (is_array($brand_arr) ? count($brand_arr) : 0); ?> brand=<?php echo isset($brand) ? $brand : ''; ?> uri=<?php echo isset($current_category_uri) ? $current_category_uri : ''; ?> category_id=<?php echo isset($current_category_id) ? $current_category_id : ''; ?> -->
+            <!-- brands_debug: cat=<?php echo isset($current_category_id) ? $current_category_id : ''; ?> uri=<?php echo isset($current_category_uri) ? $current_category_uri : ''; ?> brands=<?php echo (is_array($brand_arr) ? count($brand_arr) : 0); ?> selected=<?php echo isset($brand) ? $brand : ''; ?> found=<?php echo ($brand_found ? 1 : 0); ?> -->
             <?php endif; ?>
             <form action="#" class="custom">
 				<? if ($brand_found): ?><? /*****************BRAND************/ ?>
